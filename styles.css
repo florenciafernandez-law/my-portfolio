@@ -67,23 +67,67 @@ h2 {
   font-size: 1.25rem;
 }
 
-ul {
+.interest-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }
 
-li {
-  padding: 14px 12px;
+.interest {
   border: 1px solid #e3e8f7;
   border-radius: 14px;
   background: #f6f8ff;
   color: #35415c;
-  font-weight: 700;
-  text-align: center;
+  overflow: hidden;
+}
+
+.interest summary {
+  display: flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 14px 12px;
+  color: #35415c;
+  cursor: pointer;
+  font-weight: 800;
+  list-style: none;
+}
+
+.interest summary::-webkit-details-marker {
+  display: none;
+}
+
+.interest summary::after {
+  content: "+";
+  flex: 0 0 auto;
+  color: #5869b5;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.interest[open] summary::after {
+  content: "−";
+}
+
+.interest summary:hover {
+  background: #edf1ff;
+}
+
+.interest summary:focus-visible {
+  outline: 3px solid #5869b5;
+  outline-offset: -3px;
+}
+
+.interest-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0 16px 16px 32px;
+  color: #586174;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.5;
 }
 
 .button-row {
@@ -131,13 +175,9 @@ button:active {
     border-radius: 22px;
   }
 
-  ul {
+  .interest-grid {
     grid-template-columns: 1fr;
     gap: 10px;
-  }
-
-  li {
-    padding: 12px;
   }
 }
 
